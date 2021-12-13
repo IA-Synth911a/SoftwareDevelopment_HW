@@ -26,7 +26,7 @@ public class ProductService {
   public List<Product> getProducts() {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
       String query = "select ID id, NAME name, IMAGE_URL imageUrl, DESCRIPTION description, BOOK_ID bookId"
-          + " from PRODUCTS where name=:keyword";
+          + " from PRODUCTS";
 
         return connection.createQuery(query).executeAndFetch(Product.class);
     }
